@@ -7,9 +7,14 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173"],
+    origin: [
+      "http://localhost:5173",        // untuk development
+      "https://mern-chat-mlg4.vercel.app/"  // untuk production
+    ],
+    credentials: true
   },
 });
+
 
 export function getReceiverSocketId(userId) {
   return userSocketMap[userId];
