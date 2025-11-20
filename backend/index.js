@@ -32,7 +32,13 @@ app.get("/", (req, res) => {
   res.send("Server is ready");
 });
 
-server.listen(PORT, () => {
-  console.log("Server running on port Port" + PORT);
+if (process.env.NODE_ENV !== "production") {
+  server.listen(PORT, () => {
+    console.log("Server running on port Port" + PORT);
+    connectDB();
+  });
+} else {
   connectDB();
-});
+}
+
+export default app;
