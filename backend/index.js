@@ -17,6 +17,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://mern-chat-mlg4.vercel.app",
+      "https://mern-chat-khaki-one.vercel.app",
     ],
     credentials: true,
   })
