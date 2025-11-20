@@ -10,6 +10,7 @@ const io = new Server(server, {
     origin: [
       "http://localhost:5173",        // untuk development
       "https://mern-chat-khaki-one.vercel.app",// untuk production
+      "https://mern-chat-mlg4.vercel.app",
     ],
     credentials: true
   },

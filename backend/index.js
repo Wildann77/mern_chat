@@ -14,8 +14,11 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173", // alamat frontend
-    credentials: true, // huruf kecil!
+    origin: [
+      "http://localhost:5173",
+      "https://mern-chat-mlg4.vercel.app",
+    ],
+    credentials: true,
   })
 );
 
@@ -23,6 +26,10 @@ const PORT = process.env.PORT || 5001;
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Server is ready");
+});
 
 server.listen(PORT, () => {
   console.log("Server running on port Port" + PORT);
