@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { io } from "socket.io-client";
 
 const BASE_URL =
-  import.meta.env.MODE === "development" ? "http://localhost:5001" : "https://mern-chat-mlg4.vercel.app";
+  import.meta.env.MODE === "development" ? import.meta.env.VITE_API_URL : "https://mern-chat-mlg4.vercel.app";
 
 export const useAuthStore = create((set, get) => ({
   authUser: null,
