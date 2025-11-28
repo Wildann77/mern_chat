@@ -44,5 +44,9 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-export default app;
+// Export the handler for Vercel
+// We use server.emit because Socket.IO attaches to the HTTP server, not the Express app
+export default (req, res) => {
+  server.emit("request", req, res);
+};
 
