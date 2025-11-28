@@ -91,6 +91,7 @@ export const useAuthStore = create((set, get) => ({
       query: {
         userId: authUser._id,
       },
+      transports: ["polling"], // Force polling for Vercel
     });
     socket.connect();
 
