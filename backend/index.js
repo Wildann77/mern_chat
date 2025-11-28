@@ -38,7 +38,11 @@ if (process.env.NODE_ENV !== "production") {
     connectDB();
   });
 } else {
-  connectDB();
+  // For serverless (Vercel), ensure DB connection is established
+  connectDB().catch((err) => {
+    console.error("Failed to connect to MongoDB:", err);
+  });
 }
 
 export default app;
+
